@@ -1,0 +1,21 @@
+ <h2>Login</h2>
+<form (ngSubmit)="login()">
+    <div>
+        <label for="email">email</label>
+        <input type="text" name="email" [(ngModel)] ="email">
+    </div>
+    
+    <div>
+        <label for="password">password</label>
+        <input type="password" name="password" [(ngModel)] = "password">
+    </div>
+    
+    <div>
+        <button type="submit"> login
+        </button>
+    </div>
+</form>
+
+<div *ngIf="user$ | async as user">
+    {{user._id}}
+</div>

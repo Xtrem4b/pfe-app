@@ -1,0 +1,13 @@
+
+<div *ngIf="categories$">
+    <select (change)="onChange($event.target.value)">
+      <option *ngFor="let category of categories$ | async" [ngValue]="category">{{ category }}</option>
+    </select>
+</div>
+
+<ul>
+    <li *ngFor="let ingredient of ingredients$ | async">{{ingredient.name}}</li>
+</ul>
+
+
+

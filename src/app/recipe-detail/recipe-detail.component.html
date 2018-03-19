@@ -1,0 +1,24 @@
+<div *ngIf="recipe$ | async; let recipe">
+    <h1>{{recipe._id}}</h1>
+    <h1>{{recipe.title}}</h1>
+    <h3>{{recipe.time}}</h3>
+    <ul>
+        <li *ngFor="let ingredient of recipe.ingredients ">
+            {{ingredient.quantity}} {{ingredient.ingredient}}
+            <button name="addme" (click)="openDialog(ingredient)">link</button>
+        </li>
+    </ul>
+    <ul>
+        <li *ngFor="let step of recipe.step ">
+            {{step}}
+        </li>
+    </ul>
+</div>
+
+<h1>Ajr</h1>
+
+<div *ngIf="ajr$ | async; let ajr">
+    <ul>
+        <li *ngFor="let ingredient of ajr">{{ingredient.name}}</li>
+    </ul>
+</div>

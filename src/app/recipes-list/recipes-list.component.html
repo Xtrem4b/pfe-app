@@ -1,0 +1,21 @@
+<p>
+  recipes-list works!
+    
+</p>
+
+<ul class="recipe">
+    <li *ngFor="let recipe of recipes$ | async" >
+        <button routerLink="/recipe/{{recipe._id}}"></button>
+              <span class="badge">{{recipe._id}}</span> {{recipe.title}}
+    </li>
+</ul>
+
+
+<!--
+<p *ngIf="recipe$ | async">
+    {{(recipe$ | async)?._id}}
+</p>
+
+<div *ngIf="recipe$ | async; let recipe$">
+    {{recipe$.title}}
+</div>-->
