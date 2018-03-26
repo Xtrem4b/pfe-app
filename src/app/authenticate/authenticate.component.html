@@ -11,10 +11,15 @@
     </div>
     
     <div>
-        <button type="submit"> login
+        <button type="submit"> Login
         </button>
     </div>
+
 </form>
+
+<div>
+    <button (click)="register()">Register</button>
+</div>
 
 <div *ngIf="user$ | async as user">
     {{user._id}}
