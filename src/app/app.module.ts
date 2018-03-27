@@ -27,6 +27,7 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
 
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { RegisterComponent } from './register/register.component';
+import { BarCodeComponent } from './bar-code/bar-code.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { RegisterComponent } from './register/register.component';
     AuthenticateComponent,
     UserProfileComponent,
     RegisterComponent,
+    BarCodeComponent,
     
   ],
   imports: [

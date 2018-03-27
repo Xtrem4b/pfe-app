@@ -7,6 +7,7 @@ import { RecipesListComponent } from './recipes-list/recipes-list.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { RegisterComponent } from './register/register.component';
+import { BarCodeComponent } from './bar-code/bar-code.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
     {path: 'recipe/:id', component: RecipeDetailComponent},
     {path: 'login', component: AuthenticateComponent},
     {path: 'profile', component: UserProfileComponent},
-    {path: 'register', component: RegisterComponent}
+    {path: 'register', component: RegisterComponent},
+    {path: 'bar-code', component: BarCodeComponent}
 ];
 
 @NgModule({
