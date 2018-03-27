@@ -8,7 +8,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
     authenticate(email,password) : Observable<any>{
-        return this.http.post<any>("http://localhost:3000/login",{"email":email,"password":password});
+        return this.http.post<any>("http://localhost:3000/api/login",{"email":email,"password":password});
     }
 
 }
