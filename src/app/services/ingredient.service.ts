@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import { INGREDIENTS } from '../mock-ingredients';
+import { Ingredient } from '../models/ingredient';
+
 @Injectable()
 export class IngredientService {
 
@@ -27,4 +30,7 @@ export class IngredientService {
                     ).subscribe((data) => console.log(data));
     }
 
+    getIngredientByBarCode(barcode: string): Ingredient { // Observable<Ingredient>
+        return INGREDIENTS.filter(ingredient => ingredient.barcode === barcode)[0];
+    }
 }

@@ -25,6 +25,10 @@ import { IngredientListComponent } from './ingredient-list/ingredient-list.compo
 import { IngredientLinkDialogComponent } from './ingredient-link-dialog/ingredient-link-dialog.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { RegisterComponent } from './register/register.component';
+import { BarCodeComponent } from './bar-code/bar-code.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +37,9 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
     IngredientListComponent,
     IngredientLinkDialogComponent,
     AuthenticateComponent,
+    UserProfileComponent,
+    RegisterComponent,
+    BarCodeComponent,
     
   ],
   imports: [
@@ -43,7 +50,14 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
     BrowserAnimationsModule,
     MatDialogModule,
       MatToolbarModule,
-      MatButtonModule
+      MatButtonModule,
+    // HttpClientModule,
+    //   // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+    //   // and returns simulated server responses.
+    //   // Remove it when a real server is ready to receive requests.
+    // HttpClientInMemoryWebApiModule.forRoot(
+    //   InMemoryDataService, { dataEncapsulation: true }
+    // )
   ],
   entryComponents: [IngredientLinkDialogComponent],
 
