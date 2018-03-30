@@ -1,11 +1,10 @@
 <div *ngIf="recipe$ | async; let recipe">
-    <h1>{{recipe._id}}</h1>
     <h1>{{recipe.title}}</h1>
     <h3>{{recipe.time}}</h3>
     <ul>
-        <li *ngFor="let ingredient of recipe.ingredients ">
+        <li *ngFor="let ingredient of recipe.ingredients;let i=index ">
             {{ingredient.quantity}} {{ingredient.ingredient}}
-            <button name="addme" (click)="openDialog(ingredient)">link</button>
+            <button name="addme" (click)="openDialog(ingredient,i)">link</button>
         </li>
     </ul>
     <ul>
@@ -17,8 +16,24 @@
 
 <h1>Ajr</h1>
 
-<div *ngIf="ajr$ | async; let ajr">
+<div *ngIf="ajr$ | async; let ajr;">
     <ul>
         <li *ngFor="let ingredient of ajr">{{ingredient.name}}</li>
     </ul>
+</div>
+
+<button (click)="calculARJrecette()">Calculer les AJR de la recette</button>
+
+<div *ngIf="experimentalAJR">
+    calories:{{experimentalAJR.calorie}}<br>
+    glucide:{{experimentalAJR.glucide}}<br>
+    lipide:{{experimentalAJR.lipide}}<br>
+    proteine:{{experimentalAJR.proteine}}<br>
+    sodium:{{experimentalAJR.sodium}}<br>
+    <div>
+        <label for="nbPersons">Diviser par nombre de personne</label>
+        <input type="number" id="nbPersons" name="nbPersons" [(ngModel)]="nbPersons">
+    </div>
+    <button (click)="divByPersons()">Diviser</button>
+
 </div>

@@ -1,14 +1,24 @@
-<p>
-  recipes-list works!
-    
-</p>
+<div>
+    <label for="recipeURL">Url de la recette:</label>
+    <input type="text" id="recipeURL" name="recipeURL" [(ngModel)]="recipeURL">
+    <button class="btn btn-success" (click)="addRecipe()">Valider</button>
+</div>
 
-<ul class="recipe">
-    <li *ngFor="let recipe of recipes$ | async" >
-        <button routerLink="/recipe/{{recipe._id}}"></button>
-              <span class="badge">{{recipe._id}}</span> {{recipe.title}}
-    </li>
-</ul>
+    <div class="row">
+        <div class="col col-sm-12">
+        <ul class="recipe list-inline">
+            <li *ngFor="let recipe of recipes$ | async" class="list-inline-item li-css" > 
+                <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">{{recipe.title}}</h5>
+                    <p class="card-text">{{recipe.time}} </p>
+                    <a  routerLink="/recipe/{{recipe._id}}" class="btn btn-primary">Voir</a>
+                  </div>
+                </div>
+            </li>
+        </ul>
+        </div>
+    </div>
 
 
 <!--

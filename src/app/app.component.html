@@ -1,25 +1,90 @@
-<!--<app-ingredient-list></app-ingredient-list>-->
+<!--<app-ingredient-list></app-ingredient-list>
 <mat-toolbar class="app-toolbar no-print mat-toolbar mat-primary mat-toolbar-multiple-rows" color="primary">
 
- <a _ngcontent-c1="" class="docs-navbar-hide-small docs-button mat-button ng-star-inserted" mat-button="" tabindex="0" aria-disabled="false" href="/login">
+ <a _ngcontent-c1="" class="docs-navbar-hide-small docs-button mat-button ng-star-inserted" mat-button="" tabindex="0" aria-disabled="false" routerLink="recipes">
      <span class="mat-button-wrapper">Recettes</span>
  </a>
     
- <a _ngcontent-c1="" class="docs-navbar-hide-small docs-button mat-button ng-star-inserted" mat-button="" tabindex="0" aria-disabled="false" href="/recipe/5a830a5e772d8e5875082767">
-     <span class="mat-button-wrapper">Mes Ingredients</span>
+ <a _ngcontent-c1="" class="docs-navbar-hide-small docs-button mat-button ng-star-inserted" mat-button="" tabindex="0" aria-disabled="false" routerLink="profil">
+     <span class="mat-button-wrapper">Profil</span>
  </a>
     
- <a _ngcontent-c1="" class="docs-navbar-hide-small docs-button mat-button ng-star-inserted" mat-button="" tabindex="0" aria-disabled="false" href="/recipe/5a830a5e772d8e5875082767">
-     <span class="mat-button-wrapper">Mon suivi</span>
+ <a _ngcontent-c1="" class="docs-navbar-hide-small docs-button mat-button ng-star-inserted" mat-button="" tabindex="0" aria-disabled="false" routerLink="login">
+     <span class="mat-button-wrapper">Login</span>
  </a>
     
  <div style="flex-grow: 1"></div>
  <button aria-haspopup="true" mat-icon-button="" mattooltip="Select a theme!" tabindex="-1" class="mat-icon-button" aria-describedby="cdk-describedby-message-0" cdk-describedby-host="" style="touch-action: none; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="mat-button-wrapper">
 yo
  </span><div class="mat-button-ripple mat-ripple mat-button-ripple-round" matripple=""></div><div class="mat-button-focus-overlay"></div></button>
-    
-    
-</mat-toolbar>
+</mat-toolbar>-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-<router-outlet></router-outlet>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ">
+        <a class="nav-link" routerLink="/">Home</a>
+      </li>
+        
+      <li *ngIf="isConnected" class="nav-item">
+        <a class="nav-link" routerLink="profil">Profil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="recipes">Recettes</a>
+      </li>
+      <li *ngIf="isConnected" class="nav-item">
+        <a class="nav-link" routerLink="openfoodfact">Produits manufacturés</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <button *ngIf="!isConnected" class="btn btn-outline-success my-2 my-sm-0" (click)="openDialog()">Login</button>
+      <button *ngIf="isConnected" (click)="logout()" class="btn btn-outline-success my-2 my-sm-0" >Logout</button>
+      <button *ngIf="!isConnected" (click)="openRegister()" class="btn btn-outline-info my-2 my-sm-0" >Register</button>
+    </form>
+  </div>
+</nav>
+
+<div class="profil" *ngIf="isConnected">
+    <div class="side-bar-content">
+        <h3 style="text-align: center">{{user$?.pseudo}}</h3>
+        <ul *ngIf="user$['information']">
+            <li>sexe: {{user$?.information.sexe}}</li>
+            <li>age: {{user$?.information.age}} ans</li>
+            <li>taille: {{user$?.information.taille}} m</li>
+            <li>poids: {{user$?.information.poids}} kg</li>
+            <li>tabac: {{user$?.information.tabac}} cigarettes/par jour</li>
+            <li>activités: {{user$?.information.activite}} heures/par jour</li>
+            <li>alimentation: {{user$?.information.alimentation}}</li>
+        </ul>
+        <div>
+            <button class="side-bar-button btn btn-info" (click)="openUpdateProfil()">Mettre le profil à jour</button>
+        </div>
+        <!--<div>
+            <button class="side-bar-button btn btn-info" (click)="goOpenFoodFact()">Ajouter un produit via code</button>
+        </div>-->
+        
+        
+    </div>
+    <div style="width: 100%; overflow-x: hidden">
+    <router-outlet></router-outlet>
+    </div>
+
+
+        
+</div>
+        <!--<div class="container">
+            
+        
+        
+
+        <div>
+            <label for="days">Nombres de jours</label>
+            <input type="days" id="days" name="days" [(ngModel)]="days">
+        </div>
+        </div>
+
+    </div>-->
+
+
+<!-- <router-outlet></router-outlet>-->
 

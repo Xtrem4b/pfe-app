@@ -7,7 +7,8 @@ import { RecipesListComponent } from './recipes-list/recipes-list.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { RegisterComponent } from './register/register.component';
-import { BarCodeComponent } from './bar-code/bar-code.component';
+import { ProfilComponent } from './components/profil/profil.component';
+import { OpenfoodfactPortalComponent } from './components/openfoodfact-portal/openfoodfact-portal.component'
 
 
 const routes: Routes = [
@@ -15,9 +16,9 @@ const routes: Routes = [
     {path: 'recipes', component: RecipesListComponent},
     {path: 'recipe/:id', component: RecipeDetailComponent},
     {path: 'login', component: AuthenticateComponent},
-    {path: 'profile', component: UserProfileComponent},
     {path: 'register', component: RegisterComponent},
-    {path: 'bar-code', component: BarCodeComponent}
+    {path: 'profil', component: ProfilComponent},
+    {path: 'openfoodfact', component: OpenfoodfactPortalComponent}
 ];
 
 @NgModule({

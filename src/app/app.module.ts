@@ -2,14 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }    from '@angular/forms';
 
+import { AsyncLocalStorageModule } from 'angular-async-local-storage';
+
+
 import { HttpClientModule }    from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
-
-
 
 
 import { AppComponent } from './app.component';
@@ -27,7 +28,15 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
 
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { RegisterComponent } from './register/register.component';
-import { BarCodeComponent } from './bar-code/bar-code.component';
+import { ProfilComponent } from './components/profil/profil.component';
+import { ProfilModalComponent } from './components/profil-modal/profil-modal.component';
+import { OpenfoodfactPortalComponent } from './components/openfoodfact-portal/openfoodfact-portal.component';
+
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
+
 
 @NgModule({
   declarations: [
@@ -39,7 +48,9 @@ import { BarCodeComponent } from './bar-code/bar-code.component';
     AuthenticateComponent,
     UserProfileComponent,
     RegisterComponent,
-    BarCodeComponent,
+    ProfilComponent,
+    ProfilModalComponent,
+    OpenfoodfactPortalComponent,
     
   ],
   imports: [
@@ -48,20 +59,28 @@ import { BarCodeComponent } from './bar-code/bar-code.component';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatDialogModule,
-      MatToolbarModule,
-      MatButtonModule,
-    // HttpClientModule,
-    //   // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-    //   // and returns simulated server responses.
-    //   // Remove it when a real server is ready to receive requests.
-    // HttpClientInMemoryWebApiModule.forRoot(
-    //   InMemoryDataService, { dataEncapsulation: true }
-    // )
+       MatDialogModule,
+    MatToolbarModule,
+    MatButtonModule,
+
+    AsyncLocalStorageModule,
+          BsDropdownModule.forRoot(),
+    TooltipModule.forRoot(),
+    ModalModule.forRoot()
   ],
-  entryComponents: [IngredientLinkDialogComponent],
+  entryComponents: [IngredientLinkDialogComponent,ProfilModalComponent],
 
   providers: [RecipeService,IngredientService,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+/*
+
+    MatDialogModule,
+    MatToolbarModule,
+    MatButtonModule,
+*/
+
+

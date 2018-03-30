@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Inject} from '@angular/core';
-import {MAT_DIALOG_DATA} from '@angular/material';
+import { MAT_DIALOG_DATA } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 
 import { IngredientService } from '../services/ingredient.service';
+import {MatDialogRef} from '@angular/material';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class IngredientLinkDialogComponent implements OnInit {
     
 
     
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any,private ingredientService : IngredientService){ }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,private ingredientService : IngredientService,public dialogRef: MatDialogRef<IngredientLinkDialogComponent>){ }
 
   ngOnInit() {
     this.categories$ = this.ingredientService.getCategories();
@@ -30,6 +31,7 @@ export class IngredientLinkDialogComponent implements OnInit {
     
   addSynonyme(ingredient){
       this.ingredientService.addIngredientSynonyme(ingredient,this.data)
+      this.dialogRef.close();
   }
 
 }

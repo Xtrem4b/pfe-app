@@ -2,12 +2,12 @@
 <form (ngSubmit)="login()">
     <div>
         <label for="email">email</label>
-        <input type="text" name="email" [(ngModel)] ="email">
+        <input type="text" name="email" [(ngModel)] ="model.email">
     </div>
     
     <div>
         <label for="password">password</label>
-        <input type="password" name="password" [(ngModel)] = "password">
+        <input type="password" name="password" [(ngModel)] = "model.password">
     </div>
     
     <div>
@@ -21,6 +21,3 @@
     <button (click)="register()">Register</button>
 </div>
 
-<div *ngIf="user$ | async as user">
-    {{user._id}}
-</div>

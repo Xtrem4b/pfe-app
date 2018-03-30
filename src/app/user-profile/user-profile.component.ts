@@ -16,11 +16,11 @@ export class UserProfileComponent implements OnInit {
   constructor(private userService: UserService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.getUsers();
+    //this.getUsers();
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
-  getUsers(): void {
+  /*getUsers(): void {
     this.userService.getUsers()
     .subscribe(users => this.users = users);
   }
@@ -32,6 +32,6 @@ export class UserProfileComponent implements OnInit {
 
   update() {
     this.userService.updateUser(this.currentUser);
-  }
+  }*/
 
 }

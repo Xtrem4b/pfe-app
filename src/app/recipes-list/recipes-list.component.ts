@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../services/recipe.service';
 import { Recipe } from '../models/recipe';
 import { Observable } from 'rxjs/Observable';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
+
 
 
 @Component({
@@ -12,15 +16,21 @@ import { Observable } from 'rxjs/Observable';
 export class RecipesListComponent implements OnInit {
   recipes$: Observable<Recipe[]>;
   recipe$: Observable<Recipe>;
+  recipeURL: any;
 
     
-  constructor(private recipeService : RecipeService) { 
+  constructor(private recipeService : RecipeService,private route: ActivatedRoute, private router: Router,private location: Location) { 
 
   }
 
   ngOnInit() {
-      this.recipe$ = this.recipeService.getRecipe("5a830a5e772d8e5875082767")
       this.recipes$ = this.recipeService.getRecipes();
+  }
+    
+  addRecipe() {
+      this.recipeService.addRecipe(this.recipeURL).subscribe( data => {
+          this.router.navigate(["/recipe/"+data.insertedIds[0]])
+    })
   }
 
 }

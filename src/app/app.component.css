@@ -1,0 +1,11 @@
+.side-bar-content ul > li{
+list-style:none;
+}
+
+.side-bar-content ul {
+padding: 15px;
+}
+
+.side-bar-button{
+    margin: 15px;
+}
